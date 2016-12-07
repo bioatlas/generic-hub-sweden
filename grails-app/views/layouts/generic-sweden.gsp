@@ -99,47 +99,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">${raw(orgNameLong)}</a>
+            <a class="brand" href="/">${raw(orgNameLong)}</a>
             <div class="nav-collapse collapse">
                 <p class="hide navbar-text pull-right">
                     Logged in as <a href="#" class="navbar-link">${username}</a>
                 </p>
-                <ul class="nav">
-                               
+                <ul class="nav">                               
                     <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/news">News</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Resources<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/links">Links</a></li>
-                            <li><a href="/documents">Documents</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Usage<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/citations">Citations</a></li>
-                            <li><a href="/publications">Publications</a></li>
-                            <li><a href="/statistics1">Statistics-1</a></li>
-                            <li><a href="/statistics2">Statistics-2</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Search Data<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/generic-hub/search">Occurrence</a></li>
-                            <li><a href="/generic-hub/explore/your-area?default=true">Explore Area</a></li>
-                            <li><a href="/collectory/datasets">Datasets</a></li>
-                            <li><a href="/collectory">Collections</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/help">Help</a></li>
-                    <li><a href="/contact">Contact</a></li>
-
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/collectory/">Collections</a></li>
+                    <li><a href="/collectory/datasets/">Datasets</a></li>
+                    <li><a href="/generic-hub/search/">Occurrences</a></li>                    
+                    <li><a href="/biocache-service/oldapi/">API</a></li>
+                    <li><a href="/links/">Links</a></li>                    
+                    <li><a href="/resources">Resources</a></li>                    
+                    <li><a href="/contacts">Contact</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
