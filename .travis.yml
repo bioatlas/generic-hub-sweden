@@ -1,18 +1,41 @@
 language: groovy
+
 jdk:
 - oraclejdk7
+
 sudo: false
-branches:
-  only:
-  - master
+
 before_install:
- - wget -q https://raw.githubusercontent.com/AtlasOfLivingAustralia/travis-build-configuration/master/ala_common.sh
- - chmod +x ala_common.sh
- - source ./ala_common.sh
- - ala_travis_grails_setup_env
+- export TZ=Europe/Stockholm
+- date
+- rm -rf ~/.sdkman
+- curl -s http://get.sdkman.io | bash
+- echo "sdkman_auto_answer=true" > ~/.sdkman/etc/config
+- source ~/.sdkman/bin/sdkman-init.sh
+- GRAILS_VERSION=`grep '^app\.grails\.version=' ./application.properties | sed -e 's/^app\.grails\.version=//g'`
+- sdk install grails $GRAILS_VERSION || true
+
+before_script:
+- GRAILS_VERSION_NUMBER=`echo $GRAILS_VERSION | sed -e 's/\.[0-9]*$//g' -e 's/\.//g' | tr -d "\r"`
+- echo "GRAILS_VERSION_NUMBER:$GRAILS_VERSION_NUMBER"
+- GRAILS_SETTINGS_FILE="travis_grails_settings_new.groovy"
+- if [ "$GRAILS_VERSION_NUMBER" -lt "23" ]; then GRAILS_SETTINGS_FILE="travis_grails_settings_old.groovy"; fi;
+- echo "GRAILS_SETTINGS_FILE:$GRAILS_SETTINGS_FILE"
+- mkdir -p ~/.grails
+- wget -q -O ~/.grails/settings.groovy https://raw.githubusercontent.com/AtlasOfLivingAustralia/travis-build-configuration/master/$GRAILS_SETTINGS_FILE
+
 script:
- - ala_travis_grails_build
-env:
-  global:
-  - secure: G53K7r0RJpOGVt+HK5VXTyuuMyHZKICNW+94fMSMGQA1SduTbQBG/2MPbI41XpcShAzs6U96xd/6AcEE81hdF0yMysOKHwzlp2B5XSPdQrDZpgU7K7tXh6w5oYkexNokC6+zHFFEyj1HYIPotkhrQkBPg+xt9U1y0uXjlBxjVZM=
-  - secure: NObxPjzVvNf/xCVO4eDUAWvJJlRDYv+XSPBz14FdsH9R2Cq/xjrEgzwlTTOPEBY2ymU/rHkEGskqHg+UeIbZZtCcpq53ABSen6BQ5seVsPXndoCULZ9vsWpbD2wa6iVu9AaODFzhnHk8G5R97gqVl5EO7Tb8HqoWFRPziL8EaUE=
+- grails clean && grails refresh-dependencies --non-interactive && grails prod war --non-interactive
+
+deploy:
+  provider: releases
+  api_key:
+    secure: jiz5zWH1PAsSc/Mx6WZP3CdBcKbDL8jxGCLLZaF6ZxnrAL7kIF6mzbEEcAsyxqCt/dO8tI0y0y3m+17VjctfPkNOkyI+tBtiZiQ5Xl9fBss5y2otHt2rt4qa252mjni6QdtozhL4LsF7hjcnTDkU/zigc5RN+muXM4SUNmNf6dRBW/IRRZhHTA9EW8OV/aNwTTWpbO16w9NppVWTtM8mt09Wd1/fJ98hkYYC3Xj7irZQ3TWmjbIjUE/3+/73L5XTV/kOjK2eQNsmH+vnmRL+ZfiJXazxcxO10Za3k4kG9mrUljZz+AKkJOx5LPL+wD5COqVGJWvMJlwJO4+5CQ4xXkuOvQVTG8mGgTIloOmhoKjztyNM/76S5x/A4+9egEHUfTnImzINUna9qKbZBwvDwtsSLvXzhEgEiFi8jSuN0/HYWDdjW8apRDJnbAmkMCH5cBlnWS+hVLx+eZVQP8OU8AELc3GdDUNLTCWJ0qwvx9uVzmJE7DbOCUBv5cBdTiFu9sXIpExfQJmWqC3c/+zgWyAbYFXYrB3mxjthLYNxnj43XKQKncW7YmudGwtFczsq8IDcw+zekWDmPSE9wQZfVZQHcvAL0IPVuOQBnjECx8m3igzoSK+JW3gU2CClSVo9cRCqpUYsp5IaXN92j1bF5c6uxJXO5JVSV5ZdftSq/Is=
+  file_glob: true
+  file: "target/generic-hub-*.war"
+  skip_cleanup: true
+  overwrite: true
+  on:
+    repo: shahmanash/generic-hub-sweden
+    all-branches: true
+    tags: true
