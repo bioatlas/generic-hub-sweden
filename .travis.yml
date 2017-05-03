@@ -36,6 +36,6 @@ deploy:
   skip_cleanup: true
   overwrite: true
   on:
-    repo: shahmanash/generic-hub-sweden
+    repo: bioatlas/generic-hub-sweden
     all-branches: true
     tags: true

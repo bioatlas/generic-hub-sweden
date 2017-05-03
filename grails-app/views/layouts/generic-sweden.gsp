@@ -114,7 +114,7 @@
                     <li><a href="/collectory/">Collections</a></li>
                     <li><a href="/collectory/datasets/">Datasets</a></li>
                     <li><a href="/generic-hub/search/">Occurrences</a></li>                    
-                    <li><a href="/biocache-service/oldapi/">API</a></li>
+                    <li><a href="/api/">API</a></li>
                     <li><a href="/links/">Links</a></li>                    
                     <li><a href="/resources">Resources</a></li>                    
                     <li><a href="/contacts">Contact</a></li>
