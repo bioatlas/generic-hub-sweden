@@ -1,4 +1,4 @@
-### generic-hub   [![Build Status](https://travis-ci.org/shahmanash/generic-hub-sweden.svg?branch=master)](https://travis-ci.org/shahmanash/generic-hub-sweden)
+### generic-hub   [![Build Status](https://travis-ci.org/bioatlas/generic-hub-sweden.svg?branch=master)](https://travis-ci.org/bioatlas/generic-hub-sweden)
 # generic-hub
 
 Generic-hub is a [Grails](http://www.grails.org/) web application that is aimed to be an example implementation of the 
