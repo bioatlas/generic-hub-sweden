@@ -114,7 +114,7 @@
                     <li><a href="/collectory/">Collections</a></li>
                     <li><a href="/collectory/datasets/">Datasets</a></li>
                     <li><a href="/generic-hub/search/">Occurrences</a></li>                    
-                    <li><a href="/biocache-service/oldapi/">API</a></li>
+                    <li><a href="/api/">API</a></li>
                     <li><a href="/links/">Links</a></li>                    
                     <li><a href="/resources">Resources</a></li>                    
                     <li><a href="/contacts">Contact</a></li>
@@ -128,17 +128,6 @@
 <div class="${fluidLayout?'container-fluid':'container'}" id="main-content">
     <g:layoutBody />
 </div><!--/.container-->
-
-<div id="footer">
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <a href="http://creativecommons.org/licenses/by/3.0/au/" title="External link to Creative Commons"><img src="http://i.creativecommons.org/l/by/3.0/88x31.png" width="88" height="31" alt=""></a>
-            This site is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/au/" title="External link to Creative Commons" class="external">Creative Commons Attribution 3.0 Australia License</a>.
-        Provider content may be covered by other <a href="#terms-of-use" title="Terms of Use">Terms of Use</a>.
-        </div>
-    </div>
-</div><!--/#footer -->
-<br/>
 
 <!-- JS resources-->
 <r:layoutResources/>
