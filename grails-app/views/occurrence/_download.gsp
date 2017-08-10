@@ -12,7 +12,13 @@
     <div class="modal-body">
         <p id="termsOfUseDownload">
             <g:message code="download.termsofusedownload.01" default="By downloading this content you are agreeing to use it in accordance with the Atlas of Living Australia"/>
-            <a href="http://www.ala.org.au/about/terms-of-use/#TOUusingcontent"><g:message code="download.termsofusedownload.02" default="Terms of Use"/></a>
+            %{--
+            <a href="http://www.ala.org.au/about/terms-of-use/#TOUusingcontent">
+            --}%
+            <g:message code="download.termsofusedownload.02" default="Terms of Use"/>
+            %{--
+            </a>
+            --}%
             <g:message code="download.termsofusedownload.03" default="and any Data Provider Terms associated with the data download."/>
             <br/><br/>
             <g:message code="download.termsofusedownload.04" default="Please provide the following details before downloading (* required)"/>:
@@ -55,9 +61,11 @@
                         <input type="radio" name="downloadType" value="fast" class="tooltips" title="Download the occurrence records" checked="checked"/>&nbsp;<g:message code="download.downloadform.radio01" default="All Records"/><br/>
                         <%--<input type="radio" name="downloadType" value="detailed" class="tooltips" title="Slower download but all fields are included" checked="checked"/>&nbsp;All Records (detailed)<br/>--%>
                         <input type="radio" name="downloadType" value="checklist"  class="tooltips" title="Lists all species from the current search results"/>&nbsp;<g:message code="download.downloadform.radio02" default="Species Checklist"/><br/>
+                        %{--
                         <g:if test="${skin != 'avh'}">
                             <input type="radio" name="downloadType" value="fieldGuide" class="tooltips" title="PDF file listing species with images and distribution maps"/>&nbsp;<g:message code="download.downloadform.radio03" default="Species Field Guide"/>
                         </g:if>
+                        --}%
                     </div>
                 </div>
 
@@ -65,9 +73,11 @@
                     <br/><input type="submit" value="<g:message code="download.downloadform.button.submit" default="Start Download"/>" id="downloadStart" class="btn tooltips"/>
                 </div>
 
+                %{--
                 <div style="margin-top:10px;">
                     <strong><g:message code="download.note.01" default="Note"/></strong>: <g:message code="download.note.02" default="The field guide may take several minutes to prepare and download"/>.
                 </div>
+                --}%
                 <div id="statusMsg" style="text-align: center; font-weight: bold; "></div>
             </fieldset>
         </form>
