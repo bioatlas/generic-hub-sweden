@@ -1210,11 +1210,13 @@ a.colour-by-legend-toggle {
                     <label for="baselayer"><g:message code="map.downloadmap.field09.label" default="Base layer"/></label>
                     <select name="baselayer" id="baselayer">
                         <option value="world"><g:message code="map.downloadmap.field09.option01" default="World outline"/></option>
+                        %{--
                         <option value="aus1" selected="true"><g:message code="map.downloadmap.field09.option02" default="States & Territories"/></option>
                         <option value="aus2"><g:message code="map.downloadmap.field09.option03" default="Local government areas"/></option>
                         <option value="ibra_merged"><g:message code="map.downloadmap.field09.option04" default="IBRA"/></option>
                         <option value="ibra_sub_merged"><g:message code="map.downloadmap.field09.option05" default="IBRA sub regions"/></option>
                         <option value="imcra4_pb"><g:message code="map.downloadmap.field09.option06" default="IMCRA"/></option>
+                        --}%
                     </select>
                 </p>
                 <p>
