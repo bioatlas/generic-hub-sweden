@@ -109,7 +109,7 @@
                     Logged in as <a href="#" class="navbar-link">${username}</a>
                 </p>
                 <ul class="nav">                               
-                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/about/">About</a></li>
                     <li><a href="/collectory/">Collections</a></li>
                     <li><a href="/collectory/datasets/">Datasets</a></li>
